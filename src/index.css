@@ -1,0 +1,40 @@
+body {
+  font-family: 'Poppins', serif;
+  box-sizing: border-box;
+}
+
+.todolist-container {
+  width: 400px;
+  margin: 4rem auto;
+}
+
+.addList:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  color: #999;
+  font-style: italic;
+}
+
+.trash {
+  display: none;
+}
+
+input[type='checkbox'] {
+  transform: scale(1.5);
+}
