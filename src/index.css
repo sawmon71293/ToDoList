@@ -4,7 +4,7 @@ body {
 }
 
 .todolist-container {
-  width: 400px;
+  width: 600px;
   margin: 4rem auto;
 }
 
@@ -31,10 +31,10 @@ input::placeholder {
   font-style: italic;
 }
 
-.trash {
-  display: none;
-}
-
 input[type='checkbox'] {
   transform: scale(1.5);
+}
+
+.hidden {
+  display: none;
 }
