@@ -1,4 +1,5 @@
 import './index.css';
+
 const toDoList = document.getElementById('todolist');
 const loadTask = (tasks) => {
   tasks.sort((a, b) => a.index - b.index);
@@ -43,8 +44,8 @@ const addTask = () => {
 };
 
 const removeTask = (value) => {
-  let tasks = JSON.parse(localStorage.getItem('tasks'));
-  let filtered = tasks.filter((task) => task.index !== parseInt(value));
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  const filtered = tasks.filter((task) => task.index !== parseInt(value, 10));
   filtered.forEach((task, i) => {
     task.index = i + 1;
   });
@@ -53,7 +54,7 @@ const removeTask = (value) => {
 };
 
 const input = document.getElementById('add');
-input.addEventListener('keyup', function (event) {
+input.addEventListener('keyup', (event) => {
   event.preventDefault();
   if (event.key === 'Enter') {
     addTask();
