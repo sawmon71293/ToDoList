@@ -8,7 +8,7 @@ const loadTask = (tasks) => {
   tasks.forEach((task) => {
     const template = ` <li class= "border-bottom border-opacity-10 p-3 d-flex justify-content-between">
                           <div>
-                          <input type="checkbox" class="me-2 mt-2" />
+                          <input type="checkbox" data-index="${task.index}" class="me-2 mt-2" />
                           ${task.description}
                           </div>
                           <div>
@@ -73,5 +73,14 @@ toDoList.addEventListener('click', (e) => {
   } else if (e.target.closest('.btn-trash')) {
     const trashBtn = e.target.closest('.btn-trash');
     removeTask(trashBtn.dataset.index);
+  }
+});
+
+toDoList.addEventListener('change', (event) => {
+  if (event.target.type === 'checkbox') {
+    const index = parseInt(event.target.dataset.index, 10);
+    const task = tasks.find((task) => task.index === index);
+    task.completed = event.target.checked;
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 });
