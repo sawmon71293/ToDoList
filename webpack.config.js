@@ -24,7 +24,7 @@ module.exports = {
   ],
   output: {
     filename: 'main.js',
-    publicPath: '/ToDoList/',
+    publicPath: '/ToDoList/src/',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
