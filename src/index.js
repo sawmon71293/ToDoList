@@ -1,4 +1,5 @@
 import './index.css';
+import checkBoxes from './checkbox';
 
 const toDoList = document.getElementById('todolist');
 
@@ -82,14 +83,7 @@ toDoList.addEventListener('click', (e) => {
 });
 
 // check the boxes
-toDoList.addEventListener('change', (event) => {
-  if (event.target.type === 'checkbox') {
-    const index = parseInt(event.target.dataset.index, 10);
-    const task = tasks.find((task) => task.index === index);
-    task.completed = event.target.checked;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-});
+toDoList.addEventListener('change', checkBoxes);
 
 // editing the todos
 toDoList.addEventListener('keyup', (event) => {
@@ -100,3 +94,15 @@ toDoList.addEventListener('keyup', (event) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 });
+
+
+// clear all completed tasks
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  const filtered = tasks.filter((task) => !task.completed);
+  filtered.forEach((task, i) => task.index = i + 1);
+  localStorage.setItem('tasks', JSON.stringify(filtered));
+  loadTask(filtered);
+})
