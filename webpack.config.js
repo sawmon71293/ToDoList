@@ -28,7 +28,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].[chunkhash].js',
-    publicPath: '/',
+    publicPath: '/ToDoList/',
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].[chunkhash].js',
     clean: true,
