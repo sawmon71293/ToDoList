@@ -98,7 +98,6 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
@@ -114,4 +113,3 @@
   "author": "",
   "license": "ISC"
 }
-

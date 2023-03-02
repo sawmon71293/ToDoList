@@ -16,16 +16,21 @@ module.exports = {
       },
     ],
   },
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    styles: './src/index.css',
+    script: ['./src/index.js', './src/checkbox.js']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
   ],
   output: {
-    filename: 'main.js',
-    publicPath: '/ToDoList/src/',
+    filename: '[name].[chunkhash].js',
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[name].[chunkhash].js',
     clean: true,
   },
   devServer: {
