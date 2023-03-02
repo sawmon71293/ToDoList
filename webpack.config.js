@@ -1,6 +1,5 @@
 const path = require('path');
-/* eslint-disable import/no-unresolved */
-const HtmlWebpackPlugin = require('./node_modules/html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -18,7 +17,6 @@ module.exports = {
     ],
   },
   entry: './src/index.js',
-
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -30,8 +28,6 @@ module.exports = {
     clean: true,
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 9000,
+    static: path.join(__dirname, 'public'),
   },
 };
