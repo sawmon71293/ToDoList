@@ -99,10 +99,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode production",
     "start": "webpack serve --mode development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
 }
+
