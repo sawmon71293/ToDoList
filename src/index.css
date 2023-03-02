@@ -66,3 +66,20 @@ input[type='checkbox'] {
   display: flex;
   justify-content: flex-end;
 }
+
+#clear {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background-color: #fff;
+}
+
+#clear:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+input[type='checkbox']:checked + input {
+  text-decoration: line-through;
+}
