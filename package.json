@@ -92,6 +92,7 @@
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
@@ -100,12 +101,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "webpack serve --mode development",
-    "deploy": "main -d dist"
+    "build": "webpack --config webpack.config.js",
+    "deploy": "gh-pages -d dist",
+    "start": "webpack serve --mode development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
 }
-
