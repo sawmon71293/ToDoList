@@ -19,7 +19,7 @@ module.exports = {
   entry: {
     main: './src/index.js',
     styles: './src/index.css',
-    script: ['./src/index.js', './src/checkbox.js']
+    script: './src/checkbox.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
