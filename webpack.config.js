@@ -22,9 +22,23 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
+  "webpack": {
+    "mode": "production",
+    "entry": "./src/index.js",
+    "output": {
+      "filename": "main.js",
+      "path": __dirname + "/dist",
+      "publicPath": "/ToDoList/"
+    },
+    "plugins": [
+      new HtmlWebpackPlugin({
+        "template": "./src/index.html"
+      })
+    ]
+  },
   output: {
     filename: 'main.js',
-    publicPath: '/ToDoList/',
+    publicPath: '/ToDoList/src/',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
