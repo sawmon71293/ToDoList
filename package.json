@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "homepage": "https://sawmon71293.github.io/ToDoList/dist",
   "description": "<a name=\"readme-top\"></a>",
-  "private": true,
   "dependencies": {
     "acorn": "^8.8.2",
     "acorn-import-assertions": "^1.8.0",
@@ -105,7 +104,13 @@
     "deploy": "gh-pages -d dist",
     "start": "webpack serve --mode development"
   },
+  "build": {
+    "publicUrl": "/ToDoList/",
+    "outputPath": "dist/",
+    "assetsPublicPath": "/ToDoList/"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
 }
+
