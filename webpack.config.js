@@ -1,7 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+const __dirname = path.resolve();
+
+export default {
   mode: 'development',
   module: {
     rules: [
@@ -19,7 +21,7 @@ module.exports = {
   entry: {
     main: './src/index.js',
     styles: './src/index.css',
-    script: './src/checkbox.js'
+    script: ['./src/Checkbox.js', './src/LoadTask.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({

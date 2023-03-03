@@ -1,4 +1,4 @@
-const checkBoxes = (event) => {
+const CheckBoxes = (event) => {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   if (event.target.type === 'checkbox') {
     const index = parseInt(event.target.dataset.index, 10);
@@ -8,4 +8,4 @@ const checkBoxes = (event) => {
   }
 };
 
-export default checkBoxes;
+export default CheckBoxes;

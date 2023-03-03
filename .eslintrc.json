@@ -4,7 +4,7 @@
     "es6": true,
     "jest": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
@@ -16,7 +16,16 @@
     "eol-last": "off",
     "linebreak-style": 0,
     "import/no-unresolved": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "no-underscore-dangle": "off"
   },
-  "ignorePatterns": ["dist/", "build/"]
+  "ignorePatterns": ["dist/", "build/"],
+  "overrides": [
+    {
+      "files": ["**/*.js"],
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    }
+  ]
 }

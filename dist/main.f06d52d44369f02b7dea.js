@@ -10,26 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/checkbox.js":
-/*!*************************!*\
-  !*** ./src/checkbox.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar checkBoxes = function checkBoxes(event) {\n  var tasks = JSON.parse(localStorage.getItem('tasks'));\n  if (event.target.type === 'checkbox') {\n    var index = parseInt(event.target.dataset.index, 10);\n    var task = tasks.find(function (task) {\n      return task.index === index;\n    });\n    task.completed = event.target.checked;\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (checkBoxes);\n\n//# sourceURL=webpack://todo/./src/checkbox.js?");
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _checkbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkbox */ \"./src/checkbox.js\");\n\n\nvar toDoList = document.getElementById('todolist');\n\n// load saved tasks\nvar loadTask = function loadTask(tasks) {\n  tasks.sort(function (a, b) {\n    return a.index - b.index;\n  });\n  toDoList.innerHTML = '';\n  tasks.forEach(function (task) {\n    var template = \" <li class= \\\"border-bottom border-opacity-10 p-3 d-flex justify-content-between\\\">\\n                        <div class=\\\"inputs\\\">\\n                          <input type=\\\"checkbox\\\" data-index=\\\"\".concat(task.index, \"\\\" \").concat(task.completed ? 'checked' : '', \" class=\\\"me-2 mt-2\\\" />\\n                            <input type=\\\"text\\\" class=\\\"task-description\\\" data-index=\\\"\").concat(task.index, \"\\\" value =\\\"\").concat(task.description, \"\\\" />\\n                          </div>\\n                          <div class=\\\"buttons\\\">\\n                            <div class=\\\"ellipsis\\\">\\n                              <button class=\\\"btn btn-ellipsis\\\" data-index=\\\"\").concat(task.index, \"\\\">\\n                                <i class=\\\"fa-solid fa-ellipsis-vertical\\\"></i>\\n                              </button>\\n                            </div>\\n                            <div class=\\\"hidden\\\">\\n                              <button class=\\\"btn btn-trash\\\" data-index=\\\"\").concat(task.index, \"\\\">\\n                                <i class=\\\"fa-solid fa-trash-can\\\"></i>\\n                              </button>\\n                            </div>\\n                          </div>\\n                        </li>\");\n    toDoList.innerHTML += template;\n  });\n};\n\n// add new task\nvar addTask = function addTask() {\n  var add = document.getElementById('add').value;\n  var tasks = JSON.parse(localStorage.getItem('tasks') || JSON.stringify([]));\n  var newTask = {\n    description: add,\n    completed: false,\n    index: tasks.length + 1\n  };\n  tasks.push(newTask);\n  loadTask(tasks);\n  localStorage.setItem('tasks', JSON.stringify(tasks));\n};\n\n// remove a task\nvar removeTask = function removeTask(value) {\n  var tasks = JSON.parse(localStorage.getItem('tasks'));\n  var filtered = tasks.filter(function (task) {\n    return task.index !== parseInt(value, 10);\n  });\n  filtered.forEach(function (task, i) {\n    task.index = i + 1;\n  });\n  localStorage.setItem('tasks', JSON.stringify(filtered));\n  loadTask(filtered);\n};\n\n// calling addTask() when user enters\nvar input = document.getElementById('add');\ninput.addEventListener('keyup', function (event) {\n  event.preventDefault();\n  if (event.key === 'Enter') {\n    addTask();\n  }\n});\n\n// loading Tasks when page loads\nvar tasks = JSON.parse(localStorage.getItem('tasks'));\nif (tasks) loadTask(tasks);\n\n// removing tasks\ntoDoList.addEventListener('click', function (e) {\n  if (e.target.closest('.btn-ellipsis')) {\n    var ellipsisBtn = e.target.closest('.btn-ellipsis');\n    var trashBtn = ellipsisBtn.closest('.ellipsis').nextElementSibling;\n    ellipsisBtn.classList.add('hidden');\n    trashBtn.classList.remove('hidden');\n  } else if (e.target.closest('.btn-trash')) {\n    var _trashBtn = e.target.closest('.btn-trash');\n    removeTask(_trashBtn.dataset.index);\n  }\n});\n\n// check the boxes\ntoDoList.addEventListener('change', _checkbox__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n// editing the todos\ntoDoList.addEventListener('keyup', function (event) {\n  if (event.target.classList.contains('task-description')) {\n    var index = parseInt(event.target.closest('input').dataset.index, 10);\n    var task = tasks.find(function (task) {\n      return task.index === index;\n    });\n    task.description = event.target.value;\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n});\n\n// clear all completed tasks\nvar clearBtn = document.getElementById('clear');\nclearBtn.addEventListener('click', function (e) {\n  e.preventDefault();\n  var tasks = JSON.parse(localStorage.getItem('tasks'));\n  var filtered = tasks.filter(function (task) {\n    return !task.completed;\n  });\n  filtered.forEach(function (task, i) {\n    task.index = i + 1;\n  });\n  localStorage.setItem('tasks', JSON.stringify(filtered));\n  loadTask(filtered);\n});\n\n//# sourceURL=webpack://todo/./src/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/index.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
@@ -127,6 +107,56 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 /***/ ((module) => {
 
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\n\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://todo/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
+
+/***/ }),
+
+/***/ "./src/AddTask.js":
+/*!************************!*\
+  !*** ./src/AddTask.js ***!
+  \************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _LoadTask_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoadTask.js */ \"./src/LoadTask.js\");\n\nvar AddTask = function AddTask() {\n  var add = document.getElementById('add').value;\n  var tasks = JSON.parse(localStorage.getItem('tasks') || JSON.stringify([]));\n  var newTask = {\n    description: add,\n    completed: false,\n    index: tasks.length + 1\n  };\n  tasks.push(newTask);\n  (0,_LoadTask_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(tasks);\n  localStorage.setItem('tasks', JSON.stringify(tasks));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddTask);\n\n//# sourceURL=webpack://todo/./src/AddTask.js?");
+
+/***/ }),
+
+/***/ "./src/Checkbox.js":
+/*!*************************!*\
+  !*** ./src/Checkbox.js ***!
+  \*************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar CheckBoxes = function CheckBoxes(event) {\n  var tasks = JSON.parse(localStorage.getItem('tasks'));\n  if (event.target.type === 'checkbox') {\n    var index = parseInt(event.target.dataset.index, 10);\n    var task = tasks.find(function (task) {\n      return task.index === index;\n    });\n    task.completed = event.target.checked;\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckBoxes);\n\n//# sourceURL=webpack://todo/./src/Checkbox.js?");
+
+/***/ }),
+
+/***/ "./src/LoadTask.js":
+/*!*************************!*\
+  !*** ./src/LoadTask.js ***!
+  \*************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar LoadTask = function LoadTask(tasks) {\n  var toDoList = document.getElementById('todolist');\n  tasks.sort(function (a, b) {\n    return a.index - b.index;\n  });\n  toDoList.innerHTML = '';\n  tasks.forEach(function (task) {\n    var template = \" <li class= \\\"border-bottom border-opacity-10 p-3 d-flex justify-content-between\\\">\\n                            <div class=\\\"inputs\\\">\\n                              <input type=\\\"checkbox\\\" data-index=\\\"\".concat(task.index, \"\\\" \").concat(task.completed ? 'checked' : '', \" class=\\\"me-2 mt-2\\\" />\\n                              <input type=\\\"text\\\" class=\\\"task-description\\\" data-index=\\\"\").concat(task.index, \"\\\" value =\\\"\").concat(task.description, \"\\\" />\\n                            </div>\\n                            <div class=\\\"buttons\\\">\\n                              <div class=\\\"ellipsis\\\">\\n                                <button class=\\\"btn btn-ellipsis\\\" data-index=\\\"\").concat(task.index, \"\\\">\\n                                  <i class=\\\"fa-solid fa-ellipsis-vertical\\\"></i>\\n                                </button>\\n                              </div>\\n                              <div class=\\\"hidden\\\">\\n                                <button class=\\\"btn btn-trash\\\" data-index=\\\"\").concat(task.index, \"\\\">\\n                                  <i class=\\\"fa-solid fa-trash-can\\\"></i>\\n                                </button>\\n                              </div>\\n                            </div>\\n                          </li>\");\n    toDoList.innerHTML += template;\n  });\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoadTask);\n\n//# sourceURL=webpack://todo/./src/LoadTask.js?");
+
+/***/ }),
+
+/***/ "./src/RemoveTask.js":
+/*!***************************!*\
+  !*** ./src/RemoveTask.js ***!
+  \***************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _LoadTask_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoadTask.js */ \"./src/LoadTask.js\");\n\nvar RemoveTask = function RemoveTask(e) {\n  if (e.target.closest('.btn-ellipsis')) {\n    var ellipsisBtn = e.target.closest('.btn-ellipsis');\n    var trashBtn = ellipsisBtn.closest('.ellipsis').nextElementSibling;\n    ellipsisBtn.classList.add('hidden');\n    trashBtn.classList.remove('hidden');\n  } else if (e.target.closest('.btn-trash')) {\n    var _trashBtn = e.target.closest('.btn-trash');\n    var tasks = JSON.parse(localStorage.getItem('tasks'));\n    var filtered = tasks.filter(function (task) {\n      return task.index !== parseInt(_trashBtn.dataset.index, 10);\n    });\n    filtered.forEach(function (task, i) {\n      task.index = i + 1;\n    });\n    localStorage.setItem('tasks', JSON.stringify(filtered));\n    (0,_LoadTask_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(filtered);\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RemoveTask);\n\n//# sourceURL=webpack://todo/./src/RemoveTask.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _Checkbox_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkbox.js */ \"./src/Checkbox.js\");\n/* harmony import */ var _LoadTask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadTask.js */ \"./src/LoadTask.js\");\n/* harmony import */ var _AddTask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddTask.js */ \"./src/AddTask.js\");\n/* harmony import */ var _RemoveTask_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RemoveTask.js */ \"./src/RemoveTask.js\");\n\n\n\n\n\nvar toDoList = document.getElementById('todolist');\n\n// calling addTask() when user enters\nvar input = document.getElementById('add');\ninput.addEventListener('keyup', function (event) {\n  event.preventDefault();\n  if (event.key === 'Enter') {\n    (0,_AddTask_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n  }\n});\n\n// loading Tasks when page loads\nvar tasks = JSON.parse(localStorage.getItem('tasks'));\nif (tasks) (0,_LoadTask_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(tasks);\n\n// removing tasks\ntoDoList.addEventListener('click', _RemoveTask_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\n\n// check the boxes\ntoDoList.addEventListener('change', _Checkbox_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n// editing the todos\ntoDoList.addEventListener('keyup', function (event) {\n  if (event.target.classList.contains('task-description')) {\n    var index = parseInt(event.target.closest('input').dataset.index, 10);\n    var task = tasks.find(function (task) {\n      return task.index === index;\n    });\n    task.description = event.target.value;\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n});\n\n// clear all completed tasks\nvar clearBtn = document.getElementById('clear');\nclearBtn.addEventListener('click', function (e) {\n  e.preventDefault();\n  var tasks = JSON.parse(localStorage.getItem('tasks'));\n  var filtered = tasks.filter(function (task) {\n    return !task.completed;\n  });\n  filtered.forEach(function (task, i) {\n    task.index = i + 1;\n  });\n  localStorage.setItem('tasks', JSON.stringify(filtered));\n  (0,_LoadTask_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(filtered);\n});\n\n//# sourceURL=webpack://todo/./src/index.js?");
 
 /***/ })
 
