@@ -14,7 +14,7 @@
 /*!*************************!*\
   !*** ./src/Checkbox.js ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar CheckBoxes = function CheckBoxes(event) {\n  var tasks = JSON.parse(localStorage.getItem('tasks'));\n  if (event.target.type === 'checkbox') {\n    var index = parseInt(event.target.dataset.index, 10);\n    var task = tasks.find(function (task) {\n      return task.index === index;\n    });\n    task.completed = event.target.checked;\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckBoxes);\n\n//# sourceURL=webpack://todo/./src/Checkbox.js?");
 
@@ -24,7 +24,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!*************************!*\
   !*** ./src/LoadTask.js ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar LoadTask = function LoadTask(tasks) {\n  var toDoList = document.getElementById('todolist');\n  tasks.sort(function (a, b) {\n    return a.index - b.index;\n  });\n  toDoList.innerHTML = '';\n  tasks.forEach(function (task) {\n    var template = \" <li class= \\\"border-bottom border-opacity-10 p-3 d-flex justify-content-between\\\">\\n                            <div class=\\\"inputs\\\">\\n                              <input type=\\\"checkbox\\\" data-index=\\\"\".concat(task.index, \"\\\" \").concat(task.completed ? 'checked' : '', \" class=\\\"me-2 mt-2\\\" />\\n                              <input type=\\\"text\\\" class=\\\"task-description\\\" data-index=\\\"\").concat(task.index, \"\\\" value =\\\"\").concat(task.description, \"\\\" />\\n                            </div>\\n                            <div class=\\\"buttons\\\">\\n                              <div class=\\\"ellipsis\\\">\\n                                <button class=\\\"btn btn-ellipsis\\\" data-index=\\\"\").concat(task.index, \"\\\">\\n                                  <i class=\\\"fa-solid fa-ellipsis-vertical\\\"></i>\\n                                </button>\\n                              </div>\\n                              <div class=\\\"hidden\\\">\\n                                <button class=\\\"btn btn-trash\\\" data-index=\\\"\").concat(task.index, \"\\\">\\n                                  <i class=\\\"fa-solid fa-trash-can\\\"></i>\\n                                </button>\\n                              </div>\\n                            </div>\\n                          </li>\");\n    toDoList.innerHTML += template;\n  });\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoadTask);\n\n//# sourceURL=webpack://todo/./src/LoadTask.js?");
 
