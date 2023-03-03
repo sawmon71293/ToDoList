@@ -15,8 +15,7 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  - [LiveDemo](#live_demo)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -44,7 +43,7 @@
 
 This is to showcase javascript skill.
 
-- **Web designs**
+- **ES 6 Module**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,6 +86,10 @@ To run the project, execute the following command:
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+```
+
+### Live Demo
+
 
 <!-- AUTHORS -->
 
