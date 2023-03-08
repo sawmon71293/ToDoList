@@ -90,14 +90,17 @@
     "wildcard": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "eslint-config-airbnb-base": "^15.0.0",
     "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.5.0",
     "style-loader": "^3.3.1",
     "stylelint-config-standard": "^30.0.1",
     "stylelint-scss": "^4.4.0",
@@ -106,7 +109,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --config webpack.config.js",
     "deploy": "gh-pages -d dist",
     "start": "webpack serve --mode development",

@@ -1,6 +1,6 @@
 import './index.css';
 import CheckBoxes from './Checkbox.js';
-import LoadTask from './LoadTask.js';
+import LoadTask from './__tests__/LoadTask.js';
 import AddTask from './AddTask.js';
 import RemoveTask from './RemoveTask.js';
 
