@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for AddTask.js</title>
+    <title>Code coverage report for RemoveTask.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> AddTask.js</h1>
+        <h1><a href="index.html">All files</a> RemoveTask.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
@@ -79,39 +79,48 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import LoadTask from './LoadTask.js';
 &nbsp;
-const AddTask = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-  const add = <span class="cstat-no" title="statement not covered" >document.getElementById('add').value;</span>
-  const tasks = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem('tasks') || JSON.stringify([]));</span>
-  const newTask = <span class="cstat-no" title="statement not covered" >{</span>
-    description: add,
-    completed: false,
-    index: tasks.length + 1,
-  };
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  tasks.push(newTask);</span>
-<span class="cstat-no" title="statement not covered" >  LoadTask(tasks);</span>
-<span class="cstat-no" title="statement not covered" >  localStorage.setItem('tasks', JSON.stringify(tasks));</span>
+const RemoveTask = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  if (e.target.closest('.btn-ellipsis')) {</span>
+    const ellipsisBtn = <span class="cstat-no" title="statement not covered" >e.target.closest('.btn-ellipsis');</span>
+    const trashBtn = <span class="cstat-no" title="statement not covered" >ellipsisBtn.closest('.ellipsis').nextElementSibling;</span>
+<span class="cstat-no" title="statement not covered" >    ellipsisBtn.classList.add('hidden');</span>
+<span class="cstat-no" title="statement not covered" >    trashBtn.classList.remove('hidden');</span>
+  } else <span class="cstat-no" title="statement not covered" >if (e.target.closest('.btn-trash')) {</span>
+    const trashBtn = <span class="cstat-no" title="statement not covered" >e.target.closest('.btn-trash');</span>
+    const tasks = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem('tasks'));</span>
+    const filtered = <span class="cstat-no" title="statement not covered" >tasks.filter(<span class="fstat-no" title="function not covered" >(t</span>ask) =&gt; <span class="cstat-no" title="statement not covered" >task.index !== parseInt(trashBtn.dataset.index, 10))</span>;</span>
+<span class="cstat-no" title="statement not covered" >    filtered.forEach(<span class="fstat-no" title="function not covered" >(t</span>ask, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      task.index = i + 1;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem('tasks', JSON.stringify(filtered));</span>
+<span class="cstat-no" title="statement not covered" >    LoadTask(filtered);</span>
+  }
 };
-&nbsp;
-export default AddTask;</pre></td></tr></table></pre>
+export default RemoveTask;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
