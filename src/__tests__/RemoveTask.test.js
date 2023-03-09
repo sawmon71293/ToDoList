@@ -1,4 +1,5 @@
 import RemoveTask from './RemoveTask.js';
+
 describe('RemoveTask function', () => {
   let mockEllipsisBtn;
   let mockTrashBtn;
@@ -33,17 +34,17 @@ describe('RemoveTask function', () => {
   });
   afterEach(() => {
     jest.resetAllMocks();
-});
-test('should hide the ellipsis button and show the trash button when a task is removed', () => {
-  const mockEvent = {
-    target: {
-      closest: jest.fn(() => mockEllipsisBtn),
-    },
-  };
-  // Call the function with the mock event
-  RemoveTask(mockEvent);
-  // Check that the ellipsis button is hidden and the trash button is shown
-  expect(mockEllipsisBtn.classList.add).toHaveBeenCalledWith('hidden');
-  expect(mockTrashBtn.classList.remove).toHaveBeenCalledWith('hidden');
-});
+  });
+  test('should hide the ellipsis button and show the trash button when a task is removed', () => {
+    const mockEvent = {
+      target: {
+        closest: jest.fn(() => mockEllipsisBtn),
+      },
+    };
+    // Call the function with the mock event
+    RemoveTask(mockEvent);
+    // Check that the ellipsis button is hidden and the trash button is shown
+    expect(mockEllipsisBtn.classList.add).toHaveBeenCalledWith('hidden');
+    expect(mockTrashBtn.classList.remove).toHaveBeenCalledWith('hidden');
+  });
 });
