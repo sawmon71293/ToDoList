@@ -93,10 +93,6 @@ You can deploy this project using:
 - gitHub pages/
 - npm run build
 
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-```
 
 ### Live Demo
 
