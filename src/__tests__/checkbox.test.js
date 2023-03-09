@@ -1,4 +1,4 @@
-import CheckBoxes from './checkbox';
+import CheckBoxes from './checkbox.js';
 
 const LocalStorageMock = {
   getItem: jest.fn().mockReturnValue(JSON.stringify([

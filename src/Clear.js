@@ -1,4 +1,4 @@
-import LoadTask from './LoadTask';
+import LoadTask from './LoadTask.js';
 
 const Clear = (e) => {
   e.preventDefault();
