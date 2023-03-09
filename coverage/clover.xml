@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1678354000515" clover="3.2.0">
-  <project timestamp="1678354000515" name="All files">
+<coverage generated="1678354314350" clover="3.2.0">
+  <project timestamp="1678354314350" name="All files">
     <metrics statements="43" coveredstatements="24" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2" elements="50" coveredelements="31" complexity="0" loc="43" ncloc="43" packages="1" files="2" classes="2"/>
-    <file name="Clear.js" path="C:\Users\rittika\Desktop\ToDoList-1\src\Clear.js">
+    <file name="Clear.js" path="C:\AllProjects\ToDoList\src\Clear.js">
       <metrics statements="12" coveredstatements="12" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
@@ -17,7 +17,7 @@
       <line num="11" count="1" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
     </file>
-    <file name="LoadTask.js" path="C:\Users\rittika\Desktop\ToDoList-1\src\LoadTask.js">
+    <file name="LoadTask.js" path="C:\AllProjects\ToDoList\src\LoadTask.js">
       <metrics statements="31" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
       <line num="2" count="1" type="stmt"/>
