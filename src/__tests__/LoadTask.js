@@ -1,4 +1,4 @@
-const LoadTask = (tasks) => {
+const LoadTask = (tasks, document) => {
   const toDoList = document.getElementById('todolist');
   tasks.sort((a, b) => a.index - b.index);
   toDoList.innerHTML = '';

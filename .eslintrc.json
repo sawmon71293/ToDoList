@@ -4,28 +4,29 @@
     "es6": true,
     "jest": true
   },
-  "parser": "@babel/eslint-parser",
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "extends": ["airbnb-base"],
   "rules": {
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']"
+    ],
+    "import/prefer-default-export": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
     "eol-last": "off",
-    "linebreak-style": 0,
-    "import/no-unresolved": 0,
-    "import/extensions": 0,
-    "no-underscore-dangle": "off"
-  },
-  "ignorePatterns": ["dist/", "build/"],
-  "overrides": [
-    {
-      "files": ["**/*.js"],
-      "parserOptions": {
-        "sourceType": "module"
+    "import/extensions": [
+      1,
+      {
+        "js": "always",
+        "json": "always"
       }
-    }
-  ]
+    ]
+  },
+  "ignorePatterns": ["dist/", "build/"]
 }
