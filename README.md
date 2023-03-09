@@ -67,22 +67,32 @@ Clone this repository to your desired folder:
   cd your-folder
   git clone git@github.com:sawmon71293/ToDoList.git
 ```
-
 ### Install
 
 Install this project with:
 
-```sh
-    VS code
-```
+- npm install
+- npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+- npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x
 
-### Usage
+### Run tests
 
-To run the project, execute the following command:
+To run tests, run the following command:
 
-```sh
-  code .
-  open the index file with live server
+- npm audit
+- npm start
+  To check Styelint error:-
+
+- npx stylelint "\*_/_.{css,scss}"
+- bin/react test test/models/article_test.rb
+
+### Deployment
+
+You can deploy this project using:
+
+- gitHub pages/
+- npm run build
+
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -101,6 +111,18 @@ To run the project, execute the following command:
 - GitHub: [@sawmon](https://github.com/sawmon71293/)
 - Twitter: [@twitterhandle](https://twitter.com/sawmon34268255)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/saw-mon-han/)
+
+👤 **Ritika Rawat**
+
+- GitHub: [ritikarawat220](https://github.com/ritikarawat220)
+- Twitter: [@ritikarawat22](https://twitter.com/Ritikarawat22)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/rawatritika/)
+
+👤 Abdus Sattar
+
+- GitHub: [@githubhandle](https://github.com/AbdusSattar-70)
+- Twitter: [@twitterhandle](twitter.com/Abdus_Sattar70)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdus-sattar-a41a26215/)
 
 <!-- FUTURE FEATURES -->
 
