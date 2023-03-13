@@ -1,26 +1,23 @@
+import { JSDOM } from 'jsdom';
 import AddTask from './AddTask.js';
 import LoadTask from './LoadTask.js';
 
 jest.mock('./LoadTask.js');
-let mockDocument;
 
-beforeEach(() => {
-  // create the mocked document object
-  mockDocument = {
-    getElementById: jest.fn(),
-    addEventListener: jest.fn(),
-    // other properties and methods as needed
-  };
-
-  // assign the mocked document object to the global scope
-  global.document = mockDocument;
-});
+// create the mocked document object
 
 afterEach(() => {
   // remove the mocked document object from the global scope
   delete global.document;
 });
 describe('AddTask', () => {
+  let dom;
+
+  beforeEach(() => {
+    dom = new JSDOM('<!DOCTYPE html><html><body><div id="add"></div></body></html>');
+    global.document = dom.window.document;
+  });
+
   it('should add a new task to the list and update local storage', () => {
     // arrange
     const addInput = { value: 'New task' };
