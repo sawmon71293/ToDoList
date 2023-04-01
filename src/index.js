@@ -1,10 +1,10 @@
 import './index.css';
-import CheckBoxes from './checkbox.js';
-import LoadTask from './LoadTask.js';
-import AddTask from './AddTask.js';
-import RemoveTask from './RemoveTask.js';
-import Editing from './Editing.js';
-import Clear from './Clear.js';
+import CheckBoxes from './modules/checkbox.js';
+import LoadTask from './modules/LoadTask.js';
+import AddTask from './modules/AddTask.js';
+import RemoveTask from './modules/RemoveTask.js';
+import Editing from './modules/Editing.js';
+import Clear from './modules/Clear.js';
 
 const toDoList = document.getElementById('todolist');
 

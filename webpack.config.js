@@ -1,39 +1,54 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default {
+module.exports = {
   mode: 'development',
+  entry: {
+    main: './src/index.js',
+  },
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    assetModuleFilename: 'img/[name][ext][query]',
+  },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        test: /\.html$/,
+        use: ['html-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        type: 'asset/resource',
       },
     ],
-  },
-  entry: {
-    main: './src/index.js',
-    styles: './src/index.css',
-    script: ['./src/Checkbox.js', './src/LoadTask.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      filename: 'index.html',
     }),
   ],
-  output: {
-    filename: '[name].[chunkhash].js',
-    publicPath: '/ToDoList/',
-    path: path.resolve(__dirname, 'dist'),
-    chunkFilename: '[name].[chunkhash].js',
-    clean: true,
-  },
   devServer: {
-    static: path.join(__dirname, 'public'),
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
   },
 };

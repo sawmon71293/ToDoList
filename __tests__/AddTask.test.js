@@ -1,8 +1,8 @@
 import { JSDOM } from 'jsdom';
-import AddTask from './AddTask.js';
-import LoadTask from './LoadTask.js';
+import AddTask from '../src/modules/AddTask.js';
+import LoadTask from '../src/modules/LoadTask.js';
 
-jest.mock('./LoadTask.js');
+jest.mock('../src/modules/LoadTask.js');
 
 // create the mocked document object
 
@@ -14,7 +14,9 @@ describe('AddTask', () => {
   let dom;
 
   beforeEach(() => {
-    dom = new JSDOM('<!DOCTYPE html><html><body><div id="add"></div></body></html>');
+    dom = new JSDOM(
+      '<!DOCTYPE html><html><body><div id="add"></div></body></html>'
+    );
     global.document = dom.window.document;
   });
 
@@ -33,8 +35,13 @@ describe('AddTask', () => {
 
     // assert
     expect(localStorageMock.setItem).toHaveBeenCalledTimes(1);
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('tasks', JSON.stringify([{ description: 'New task', completed: false, index: 1 }]));
+    expect(localStorageMock.setItem).toHaveBeenCalledWith(
+      'tasks',
+      JSON.stringify([{ description: 'New task', completed: false, index: 1 }])
+    );
     expect(LoadTask).toHaveBeenCalledTimes(1);
-    expect(LoadTask).toHaveBeenCalledWith([{ description: 'New task', completed: false, index: 1 }]);
+    expect(LoadTask).toHaveBeenCalledWith([
+      { description: 'New task', completed: false, index: 1 },
+    ]);
   });
 });

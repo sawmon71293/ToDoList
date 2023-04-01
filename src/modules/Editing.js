@@ -7,7 +7,5 @@ const Editing = (event) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 };
-test('example test', () => {
-  // test code goes here
-});
+
 export default Editing;
