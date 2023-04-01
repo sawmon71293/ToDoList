@@ -16,7 +16,7 @@
       "WithStatement",
       "BinaryExpression[operator='in']"
     ],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     "import/prefer-default-export": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
