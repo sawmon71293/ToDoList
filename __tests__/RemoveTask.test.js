@@ -1,4 +1,4 @@
-import RemoveTask from './RemoveTask.js';
+import RemoveTask from '../src/modules/RemoveTask.js';
 
 describe('RemoveTask function', () => {
   let mockEllipsisBtn;

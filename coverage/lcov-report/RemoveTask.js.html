@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>11/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>11/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -82,8 +82,15 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -93,32 +100,25 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import LoadTask from './LoadTask.js';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import LoadTask from './LoadTask.js';
 &nbsp;
-const RemoveTask = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  if (e.target.closest('.btn-ellipsis')) {</span>
-    const ellipsisBtn = <span class="cstat-no" title="statement not covered" >e.target.closest('.btn-ellipsis');</span>
-    const trashBtn = <span class="cstat-no" title="statement not covered" >ellipsisBtn.closest('.ellipsis').nextElementSibling;</span>
-<span class="cstat-no" title="statement not covered" >    ellipsisBtn.classList.add('hidden');</span>
-<span class="cstat-no" title="statement not covered" >    trashBtn.classList.remove('hidden');</span>
-  } else <span class="cstat-no" title="statement not covered" >if (e.target.closest('.btn-trash')) {</span>
-    const trashBtn = <span class="cstat-no" title="statement not covered" >e.target.closest('.btn-trash');</span>
-    const tasks = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem('tasks'));</span>
-    const filtered = <span class="cstat-no" title="statement not covered" >tasks.filter(<span class="fstat-no" title="function not covered" >(t</span>ask) =&gt; <span class="cstat-no" title="statement not covered" >task.index !== parseInt(trashBtn.dataset.index, 10))</span>;</span>
-<span class="cstat-no" title="statement not covered" >    filtered.forEach(<span class="fstat-no" title="function not covered" >(t</span>ask, i) =&gt; {</span>
+const RemoveTask = (e) =&gt; {
+  if (e.target.closest('.btn-ellipsis')) {
+    const ellipsisBtn = e.target.closest('.btn-ellipsis');
+    const trashBtn = ellipsisBtn.closest('.ellipsis').nextElementSibling;
+    ellipsisBtn.classList.add('hidden');
+    trashBtn.classList.remove('hidden');
+  }<span class="branch-0 cbranch-no" title="branch not covered" > else if (e.target.closest('.btn-trash')) {</span>
+<span class="cstat-no" title="statement not covered" >    const trashBtn = e.target.closest('.btn-trash');</span>
+<span class="cstat-no" title="statement not covered" >    const tasks = JSON.parse(localStorage.getItem('tasks'));</span>
+<span class="cstat-no" title="statement not covered" >    const filtered = tasks.filter((task) =&gt; task.index !== parseInt(trashBtn.dataset.index, 10));</span>
+<span class="cstat-no" title="statement not covered" >    filtered.forEach((task, i) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      task.index = i + 1;</span>
-    });
+<span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >    localStorage.setItem('tasks', JSON.stringify(filtered));</span>
 <span class="cstat-no" title="statement not covered" >    LoadTask(filtered);</span>
-  }
+<span class="cstat-no" title="statement not covered" >  }</span>
 };
 export default RemoveTask;</pre></td></tr></table></pre>
 
@@ -127,7 +127,7 @@ export default RemoveTask;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-09T02:37:43.973Z
+                at 2023-04-01T08:43:26.535Z
             </div>
         <script src="prettify.js"></script>
         <script>

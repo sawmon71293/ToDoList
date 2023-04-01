@@ -1,7 +1,7 @@
-import AddTask from './AddTask.js';
-import LoadTask from './LoadTask.js';
+import AddTask from '../src/modules/AddTask.js';
+import LoadTask from '../src/modules/LoadTask.js';
 
-jest.mock('./LoadTask.js');
+jest.mock('../src/modules/LoadTask.js');
 let mockDocument;
 
 beforeEach(() => {

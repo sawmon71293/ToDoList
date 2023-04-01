@@ -1,4 +1,4 @@
-import Editing from './Editing.js';
+import Editing from '../src/modules/Editing.js';
 // Mock localStorage
 const localStorageMock = (() => {
   let store = {};
