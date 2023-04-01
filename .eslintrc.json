@@ -1,22 +1,26 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2021": true,
     "jest": true
   },
-  "parser": "babel-eslint",
+  "globals": {
+    "global": true
+  },
+  "extends": "eslint:recommended",
+  "overrides": [],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "extends": ["airbnb-base"],
+  "plugins": ["import"],
   "rules": {
     "no-restricted-syntax": [
       "error",
       "WithStatement",
       "BinaryExpression[operator='in']"
     ],
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": 0,
     "import/prefer-default-export": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
@@ -29,5 +33,5 @@
       }
     ]
   },
-  "ignorePatterns": ["dist/", "build/"]
+  "ignorePatterns": ["dist/", "build/", "webpack.config.js"]
 }

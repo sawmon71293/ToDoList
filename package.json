@@ -26,9 +26,11 @@
     "@babel/preset-env": "^7.21.4",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "eslint-plugin-import": "^2.27.5",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "jsdom": "^21.1.1",
     "style-loader": "^3.3.2",
     "webpack": "^5.77.0",
@@ -38,5 +40,12 @@
   "dependencies": {
     "stylelint-config-standard": "^32.0.0",
     "stylelint-scss": "^4.6.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom",
+    "globals": {
+      "global": {}
+    }
   }
 }
