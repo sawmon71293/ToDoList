@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   clearMocks: true,
   collectCoverage: true,
   // An array of glob patterns indicating a set of
